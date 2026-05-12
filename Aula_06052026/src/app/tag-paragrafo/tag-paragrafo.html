@@ -1,1 +1,19 @@
-<p>tag-paragrafo works!</p>
+<p>Teste de parágrafo</p>
+<p>Segundo parágrafo</p>
+
+@for (item of this.numeros; track $index) {
+        <!-- Property Bind -->
+  <p>Os meus dados:{{ item }} , nível {{ $index }}</p>
+}
+
+<p>Formatador <strong>Strong</strong></p>
+<p>Formatador <em>Itálico</em></p>
+<p>Formatador <br>Br</p>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque varius vestibulum feugiat. Aliquam erat
+    volutpat. Duis turpis orci, posuere a metus sed, maximus posuere velit. Praesent eget semper nisi. Quisque a
+    suscipit purus. Donec pellentesque mi posuere sem egestas sollicitudin. Nullam non orci ut magna ultrices tincidunt.
+    <br>Curabitur vestibulum massa libero, ut luctus neque posuere non. Donec elit urna, gravida nec nisi et, posuere
+    consequat est.
+</p>

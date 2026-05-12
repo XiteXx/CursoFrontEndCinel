@@ -1,1 +1,38 @@
-<p>tag-listas works!</p>
+<h1>Exemplo de Tags Listas</h1>
+<p>Lista não ordenada</p>
+
+<ul>
+  <li>Entrada não ordenada</li>
+  <li>Entrada não ordenada</li>
+  <li>Entrada não ordenada</li>
+  <p>Teste</p>
+</ul>
+
+<p>Lista ordenada Estatica</p>
+
+<ol>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ol>
+
+@for (item of this.Alunos; track $index) {
+        <!-- Property Bind -->
+  <p>Nome do Aluno: {{ item }} , nível {{ $index }}</p>
+}
+
+<p>Lista Dinamica <strong>Não Ordenada</strong></p>
+<ul>
+  @for (item of this.Alunos; track $index) {
+    <!-- Interpolação no angular é property bind {{}} -->
+    <li>Lista {{"lista" + item.toLocaleUpperCase() }}</li>
+  }
+</ul>
+<p>Lista Dinamica <strong>Ordenada</strong></p>
+<ol>
+  @for (data of this.Alunos; track $index) {
+    <!-- Interpolação no angular é property bind {{}} -->
+    <li>Lista {{ data }}</li>
+  }
+</ol>
+
