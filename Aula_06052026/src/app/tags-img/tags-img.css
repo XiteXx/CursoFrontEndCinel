@@ -1,0 +1,9 @@
+.image {
+    width: 200px;
+}
+
+/* Quando se usa tag não é preciso ponto */
+
+img {
+    width: 100%;
+}
