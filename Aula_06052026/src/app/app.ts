@@ -7,9 +7,12 @@ import { TagLinks } from "./tag-links/tag-links";
 import { TagsImg } from './tags-img/tags-img';
 import { TagsSemanticas } from './tags-semanticas/tags-semanticas';
 import { TagsVideo } from './tags-video/tags-video';
+import { TabelasEstaticas } from "./tabelas-estaticas/tabelas-estaticas";
+import { TabelasEstaticas2 } from "./tabelas-estaticas-2/tabelas-estaticas-2";
+import { FormularioEstatico } from "./formulario-estatico/formulario-estatico";
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, TagsH, TagParagrafo, TagListas, TagLinks, TagsImg, TagsSemanticas, TagsVideo],
+  imports: [RouterOutlet, TagsH, TagParagrafo, TagListas, TagLinks, TagsImg, TagsSemanticas, TagsVideo, TabelasEstaticas, TabelasEstaticas2, FormularioEstatico],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
