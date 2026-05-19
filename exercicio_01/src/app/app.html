@@ -1,5 +1,24 @@
-<app-tag-header></app-tag-header>
-<app-tag-compilacao-img-video-semanticas></app-tag-compilacao-img-video-semanticas>
+<app-tag-header (secaoSelecionada)="mostrar($event)"></app-tag-header>
+
+
+
+<section *ngIf="secaoAtiva === 'listas'">
+    <app-tag-listas></app-tag-listas>
+</section>
+
+<section *ngIf="secaoAtiva === 'imagem'">
+    <app-tag-compilacao-img-video-semanticas></app-tag-compilacao-img-video-semanticas>
+</section>
+
+<section *ngIf="secaoAtiva === 'tabelas'">
+    <app-tag-tabelas></app-tag-tabelas>
+</section>
+
+<section *ngIf="secaoAtiva === 'login'">
+    <app-tag-login></app-tag-login>
+</section>
+
+
 <app-tag-footer></app-tag-footer>
 
 <router-outlet />

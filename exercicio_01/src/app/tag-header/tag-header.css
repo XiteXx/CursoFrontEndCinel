@@ -1,28 +1,41 @@
- nav {
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
- }
+/* menu da esquerda */
+.menu {
+    display: flex;
+    gap: 20px;
+}
 
- .logo {
-     color: white;
-     font-size: 24px;
-     font-weight: bold;
- }
+/* login à direita */
+.login {
+    display: flex;
+    margin-left: auto;
+}
+.navbar {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    background-color: #1f2937;
+    padding: 15px;
+    border-radius: 10px;
+}
 
- .menu {
-     list-style: none;
-     display: flex;
-     gap: 20px;
-     margin: 0;
-     padding: 0;
- }
+/* Links */
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
 
- .menu a {
-     color: white;
-     text-decoration: none;
- }
+/* Hover bonito */
+.navbar a:hover {
+    background-color: #3b82f6;
+    transform: scale(1.05);
+}
 
- .menu a:hover {
-     text-decoration: underline;
- }
+/* Efeito de clique */
+.navbar a:active {
+    transform: scale(0.95);
+}

@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TagsSemanticas } from './tags-semanticas';
+import { TagTabelas } from './tag-tabelas';
 
-describe('TagsSemanticas', () => {
-  let component: TagsSemanticas;
-  let fixture: ComponentFixture<TagsSemanticas>;
+describe('TagTabelas', () => {
+  let component: TagTabelas;
+  let fixture: ComponentFixture<TagTabelas>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TagsSemanticas],
+      imports: [TagTabelas],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(TagsSemanticas);
+    fixture = TestBed.createComponent(TagTabelas);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

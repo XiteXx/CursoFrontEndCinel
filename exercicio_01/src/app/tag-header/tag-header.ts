@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-tag-header',
@@ -6,4 +6,10 @@ import { Component } from '@angular/core';
   templateUrl: './tag-header.html',
   styleUrl: './tag-header.css',
 })
-export class TagHeader {}
+export class TagHeader {
+  
+  @Output() secaoSelecionada = new EventEmitter<string>();
+  selecionar(secao: string) {
+    this.secaoSelecionada.emit(secao);
+  }
+}

@@ -1,9 +1,13 @@
-<h1>Bem-vindo ao MeuSite!</h1>
+<h1>Exercicio Nº1 - Leonardo Valente</h1>
 
-<nav>
-    <a href="#">Início</a>
-    <a href="#">Sobre</a>
-    <a href="#">Serviços</a>
-    <a href="#">Portfólio</a>
-    <a href="#">Contacto</a>
+<nav class="navbar">
+    <div class="menu">
+        <a (click)="selecionar('listas')">Listas</a> |
+        <a (click)="selecionar('imagem')">Imagem</a> |
+        <a (click)="selecionar('tabelas')">Tabelas</a>
+    </div>
+
+    <div class="login">
+        <a (click)="selecionar('login')">Login</a>
+    </div>
 </nav>
