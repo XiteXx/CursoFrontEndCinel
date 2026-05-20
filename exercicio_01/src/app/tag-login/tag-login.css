@@ -1,46 +1,123 @@
+/* Fundo geral igual ao resto do site */
 body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f3f4f6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
 
-        .login-box {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            width: 300px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            text-align: center;
-        }
+    min-height: 100vh;
 
-        .login-box h1 {
-            margin-bottom: 20px;
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-        .login-box input {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-        }
+    background:
+        radial-gradient(circle at top left, #3b82f6 0%, transparent 35%),
+        radial-gradient(circle at bottom right, #1d4ed8 0%, transparent 30%),
+        linear-gradient(135deg, #0f172a, #111827, #1e293b);
 
-        .login-box button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 15px;
-            background-color: #3b82f6;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+    color: white;
+}
 
-        .login-box button:hover {
-            background-color: #2563eb;
-        }
+/* Caixa login */
+.login-box {
+    width: 340px;
+
+    padding: 35px;
+
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.05);
+
+    text-align: center;
+
+    animation: fadeUp 0.8s ease;
+}
+
+/* Título */
+.login-box h1 {
+    margin-bottom: 25px;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    background: linear-gradient(90deg, #ffffff, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Inputs */
+.login-box input {
+    width: 100%;
+
+    padding: 12px 14px;
+    margin: 10px 0;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255,255,255,0.10);
+
+    background: rgba(255,255,255,0.05);
+    color: white;
+
+    outline: none;
+
+    transition: 0.3s ease;
+}
+
+/* Focus input */
+.login-box input:focus {
+    border-color: rgba(96,165,250,0.6);
+    box-shadow: 0 0 12px rgba(59,130,246,0.25);
+}
+
+/* Botão */
+.login-box button {
+    width: 100%;
+
+    padding: 12px;
+
+    margin-top: 15px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    box-shadow: 0 6px 18px rgba(59,130,246,0.25);
+}
+
+/* Hover botão */
+.login-box button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(59,130,246,0.35);
+}
+
+/* Click */
+.login-box button:active {
+    transform: scale(0.97);
+}
+
+/* Animação entrada */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

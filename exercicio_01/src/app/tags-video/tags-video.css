@@ -1,5 +1,6 @@
-.video{
+.video {
     display: flex;
-    justify-content: center;
-    margin: 30px 0;
+    flex-direction: column; /* 👈 isto resolve o problema */
+    align-items: center;    /* opcional: centra tudo */
+    gap: 0px;
 }

@@ -1,41 +1,104 @@
 /* menu da esquerda */
-.menu {
-    display: flex;
-    gap: 20px;
-}
-
-/* login à direita */
-.login {
-    display: flex;
-    margin-left: auto;
-}
+/* Navbar principal */
 .navbar {
     display: flex;
-    gap: 20px;
+    align-items: center;
     justify-content: center;
-    background-color: #1f2937;
-    padding: 15px;
-    border-radius: 10px;
+
+    margin: 20px auto;   /* isto centra horizontalmente */
+    width: fit-content;  /* faz a navbar ter só o tamanho do conteúdo */
+
+    gap: 20px;
+
+    padding: 14px 24px;
+    border-radius: 18px;
+
+    background: rgba(31, 41, 55, 0.85);
+    backdrop-filter: blur(10px);
+}
+
+/* Menu */
+.menu {
+    display: flex;
+    gap: 12px;
+}
+
+/* Login à direita */
+.login {
+    margin-left: auto;
 }
 
 /* Links */
 .navbar a {
-    color: white;
+    position: relative;
+
+    color: #f9fafb;
     text-decoration: none;
-    font-size: 18px;
-    padding: 8px 12px;
-    border-radius: 6px;
-    transition: all 0.3s ease;
+    font-size: 17px;
+    font-weight: 500;
+
+    padding: 10px 16px;
+    border-radius: 12px;
+
+    transition:
+        background 0.3s ease,
+        transform 0.2s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
     cursor: pointer;
 }
 
-/* Hover bonito */
-.navbar a:hover {
-    background-color: #3b82f6;
-    transform: scale(1.05);
+/* Linha animada em baixo */
+.navbar a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 4px;
+
+    width: 0%;
+    height: 2px;
+
+    background: #60a5fa;
+    border-radius: 10px;
+
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
 }
 
-/* Efeito de clique */
+/* Hover */
+.navbar a:hover {
+    background: rgba(59, 130, 246, 0.15);
+    color: #60a5fa;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+}
+
+/* Animar linha */
+.navbar a:hover::after {
+    width: 70%;
+}
+
+/* Clique */
 .navbar a:active {
-    transform: scale(0.95);
+    transform: scale(0.96);
+}
+
+/* Link ativo */
+.navbar a.active {
+    background: #3b82f6;
+    color: white;
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.45);
+}
+
+@media (max-width: 768px) {
+    .navbar a {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .navbar {
+        gap: 8px;
+    }
 }

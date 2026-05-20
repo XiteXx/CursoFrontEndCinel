@@ -1,7 +1,9 @@
 .image {
-    width: 30vw;
+    width: 800px;
+    height: 450px;
 }
 
 img {
-    width: 100%;
+    width: 800px;
+    height: 450px;
 }
