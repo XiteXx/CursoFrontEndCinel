@@ -1,0 +1,52 @@
+.avatar-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.avatar:hover{
+    background: rgba(81, 82, 76, 0.1);
+}
+
+.name {
+    color: rgb(3, 233, 99);
+    font-size: 0.9rem;
+}
+
+button {
+    padding: 5px 10px;
+
+    border: none;
+    cursor: pointer;
+    border-radius: 5%;
+}
+@media (max-width: 750px) {
+    
+}
+
+@media (max-width: 480px) {
+   .avatar-container {
+    flex-direction: column;
+    align-items: center;
+}
+
+    .avatar {
+    width: 30px;
+    height: 30px;
+}
+
+    .name {
+        text-align: center;
+}
+   
+    .name {
+    text-align: center;
+} 
+}
