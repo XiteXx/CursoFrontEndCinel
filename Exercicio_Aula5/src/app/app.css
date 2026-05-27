@@ -1,0 +1,44 @@
+/* Layout base da app */
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  background: #f5f7fb; /* fundo suave tipo dashboard */
+}
+
+/* HEADER fixo já existente -> garante espaço no main */
+app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* MAIN ocupa o espaço entre header e footer */
+.app-main {
+  flex: 1;
+
+  /* IMPORTANTE: compensa altura do header fixo */
+  padding-top: 10vh;
+
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 24px;
+
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* FOOTER estilo sticky elegante */
+app-footer {
+  margin-top: auto;
+
+  background: #1f2937;
+  color: white;
+
+  padding: 20px 24px;
+  text-align: center;
+}

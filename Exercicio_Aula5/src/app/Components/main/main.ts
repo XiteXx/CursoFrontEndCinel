@@ -1,6 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { ChangeDetectorRef } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-main',
@@ -10,7 +13,7 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './main.css',
 })
 export class Main implements OnInit, OnDestroy {
-
+  constructor(private cdr: ChangeDetectorRef) {}
   hours: string = '';
   minutes: string = '';
   seconds: string = '';
@@ -32,19 +35,21 @@ export class Main implements OnInit, OnDestroy {
   }
 
   updateTime() {
-    const now = new Date();
+  const now = new Date();
 
-    this.hours = this.pad(now.getHours());
-    this.minutes = this.pad(now.getMinutes());
-    this.seconds = this.pad(now.getSeconds());
+  this.hours = this.pad(now.getHours());
+  this.minutes = this.pad(now.getMinutes());
+  this.seconds = this.pad(now.getSeconds());
 
-    this.date = now.toLocaleDateString('pt-PT', {
-      weekday: 'long',
-      day: '2-digit',
-      month: 'long',
-      year: 'numeric'
-    });
-  }
+  this.date = now.toLocaleDateString('pt-PT', {
+    weekday: 'long',
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric'
+  });
+
+  this.cdr.detectChanges(); // 👈 força refresh
+}
 
   pad(value: number) {
     return value.toString().padStart(2, '0');
