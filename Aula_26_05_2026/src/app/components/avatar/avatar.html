@@ -1,7 +1,7 @@
 <div class="avatar-container">
-    <img src="avatar.png" alt="FotoLogin" class="avatar">
+    <img [src]="this?.localimg ?? 'avatar.png'" alt="FotoLogin" class="avatar">
     <!-- Property Bind / Interpolação -->
-    <span class="name">{{this.nome}}</span>
+    <span class="name">{{this.localnome}}</span>
     <button (click)="logout()">Sign Out</button>
     <!-- <button (mouseover)="teste()">Teste</button> -->
 </div>
