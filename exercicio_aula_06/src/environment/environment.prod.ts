@@ -8,17 +8,18 @@ export const environment = {
 
   apiKey: keys.apiKey,
 
-  authDomain: "cinel-aula6.firebaseapp.com",
+  authDomain: "exercicio-aula-06.firebaseapp.com",
 
-  projectId: "cinel-aula6",
+  projectId: "exercicio-aula-06",
 
-  storageBucket: "cinel-aula6.firebasestorage.app",
+  storageBucket: "exercicio-aula-06.firebasestorage.app",
 
-  messagingSenderId: "255651576175",
+  messagingSenderId: "155496956609",
 
-  appId: "1:255651576175:web:1f9c0c0629483b6a52909a",
+  appId: "1:155496956609:web:5881fb5dcdeff678bf4a40",
 
-  measurementId: "G-TLEQBF606P"
+  measurementId: "G-67BK5ZYY6V"
+
 
 }
 };

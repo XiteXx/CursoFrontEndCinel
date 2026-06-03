@@ -8,17 +8,18 @@ export const environment = {
 
   apiKey: keys.apiKey,
 
-authDomain: "frontend-exercicio-aula06.firebaseapp.com",
+authDomain: "exercicio-aula-06.firebaseapp.com",
 
-  projectId: "frontend-exercicio-aula06",
+  projectId: "exercicio-aula-06",
 
-  storageBucket: "frontend-exercicio-aula06.firebasestorage.app",
+  storageBucket: "exercicio-aula-06.firebasestorage.app",
 
-  messagingSenderId: "290907994039",
+  messagingSenderId: "155496956609",
 
-  appId: "1:290907994039:web:bbcf3d8d5171e019e01a32",
+  appId: "1:155496956609:web:5881fb5dcdeff678bf4a40",
 
-  measurementId: "G-VLQ3LCZG43"
+  measurementId: "G-67BK5ZYY6V"
+
 
 
 }
