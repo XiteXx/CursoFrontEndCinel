@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist\\exercicio_aula_06\\browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
