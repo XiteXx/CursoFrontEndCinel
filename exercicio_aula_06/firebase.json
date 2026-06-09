@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist\\exercicio_aula_06\\browser",
+    "public": "/dist/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
