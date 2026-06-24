@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { IAnimal } from '../../shared/i-animal';
 
 @Component({
   selector: 'app-poo',
@@ -6,4 +7,19 @@ import { Component } from '@angular/core';
   templateUrl: './poo.html',
   styleUrl: './poo.css',
 })
-export class Poo {}
+export class Poo implements IAnimal, OnInit {
+
+  nome: string;
+
+  makeSound(): void {
+    console.log("Já tenho som");
+  }
+
+  constructor() {
+  this.nome = "XiteX";
+  }
+
+  ngOnInit(): void {
+    this.makeSound();
+  }
+}

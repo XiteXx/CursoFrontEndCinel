@@ -23,6 +23,11 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/fuctions/fuctions').then((c) => c.Fuctions),
   },
+  {
+    path: 'ebook/typescript',
+    loadComponent: () =>
+      import('./pages/typescript/typescript').then((rafael) => {return rafael.Typescript}),
+  },
 
   {
     path: '**',
