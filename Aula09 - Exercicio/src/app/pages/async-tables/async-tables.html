@@ -112,48 +112,6 @@
     </div>
     </section>
 
-    <!-- <section>
-    <div class="table-card">
-
-        <div class="table-header">
-            <h2>🔄 Observable</h2>
-
-            <button (click)="loadObservable()">
-                Carregar Dados
-            </button>
-        </div>
-        <table>
-
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Email</th>
-                    <th>Idade</th>
-                    <th>Ativo</th>
-                    <th>Salário</th>
-                    <th>Departamento</th>
-                </tr>
-            </thead>
-
-            <tbody>
-
-                @for (user of (localUserSubscription | async); track user.id) {
-                    <tr>
-                        <td>{{ user.id }}</td>
-                        <td>{{ user.email }}</td>
-                        <td>{{ user.idade }}</td>
-                        <td>{{ user.activo ? 'Sim' : 'Não' }}</td>
-                        <td>{{ user.salario | currency:'EUR' }}</td>
-                        <td>{{ user.departamento }}</td>
-                    </tr>
-                }
-
-            </tbody>
-
-        </table>
-    
-    </div>
-    </section>-->
 
     <!-- ================= Promise ================= -->
     <section>

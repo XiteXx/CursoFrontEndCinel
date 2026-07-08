@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { IUser } from '../../shared/i-user';
-import { catchError, Observable, of, switchMap, take } from 'rxjs';
+import { catchError, delay, from, Observable, of, switchMap, take, tap } from 'rxjs';
 import { FakeBack } from '../../service/fake-back';
 
 type LocalError = {errorAsync: boolean, errorNome: string};
@@ -65,36 +65,36 @@ export class AsyncTables {
   }
 
   loadObservable() {
-  //Info sobre RxJS
-  //Operador take(x), faz com que após x subscrições o canal de dados é fechado
-  this.fakeBack.getUtilizadoresObservable().pipe(take(1), switchMap((res: IUser[]) => {
-    console.log("Resultado de carregar observable:  ", res);
-    return this.localUserSubscription = res;
-  }), 
-  
-  catchError((error) => {
-    console.error("Erro load observabhle", error);
-    this.errorObservable = {errorAsync: true, errorNome: "Erro no obsercvable:  " + error};
-    return of([]);
 
-  })
-  ).subscribe();
-  }
+  // Limpa estado anterior
+  this.errorObservable = {
+    errorAsync: false,
+    errorNome: ""
+  };
 
-  loadObservableComSubscribeObjeto() {
-  //Info sobre RxJS
-  //Operador take(x), faz com que após x subscrições o canal de dados é fechado
-  this.fakeBack.getUtilizadoresObservable().pipe(take(1), switchMap((res: IUser[]) => {
-    console.log("Resultado de loadObservableComSubscribeObjeto:  ", res);
-    return res;
-  }), 
-  
-  ).subscribe({
-    next: (res) => {console.log("Nossos Dados:  " + res)},
-    error: (e) => console.log("Erro de loadObservableComSubscribeObjeto:  " + e),
-    complete: () => console.log("O Noso complete, terminou o observable"),
-  });
-  }
+  this.fakeBack.getUtilizadoresObservable()
+    .pipe(
+      take(1),
+      catchError((error) => {
+
+        console.error("Erro load observable", error);
+
+        this.errorObservable = {
+          errorAsync: true,
+          errorNome: "Erro no observable: " + error
+        };
+
+        return of([]);
+      })
+    )
+    .subscribe((res: IUser[]) => {
+
+      console.log("Resultado observable:", res);
+
+      this.localUserSubscription = res;
+
+    });
+}
 
 
 
