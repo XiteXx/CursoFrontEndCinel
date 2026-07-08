@@ -1,0 +1,154 @@
+<div class="tables-container">
+
+    <h1>Tabelas Assíncronas</h1>
+
+    <p>
+        Comparação entre Promise, Async/Await e Observable.
+    </p>
+
+    <!-- ================= Promise ================= -->
+    <div class="table-card">
+
+        <div class="table-header">
+            <h2>📌 Promise (then / catch)</h2>
+
+            <button (click)="loadPromise()">
+                Carregar Dados
+            </button>
+        </div>
+
+        @if (errorPromise.errorAsync) {
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td colspan="6">
+                            Sem dados - {{ errorPromise.errorNome }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        } @else {
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Idade</th>
+                        <th>Ativo</th>
+                        <th>Salário</th>
+                        <th>Departamento</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @for (item of localUserPromise; track item.id) {
+                        <tr>
+                            <td>{{ item.id }}</td>
+                            <td>{{ item.email }}</td>
+                            <td>{{ item.idade }}</td>
+                            <td>{{ item.activo ? 'Sim' : 'Não' }}</td>
+                            <td>{{ item.salario | currency:'EUR' }}</td>
+                            <td>{{ item.departamento }}</td>
+                        </tr>
+                    }
+
+                </tbody>
+
+            </table>
+
+        }
+
+    </div>
+
+    <!-- ================= Async / Await ================= -->
+    <div class="table-card">
+
+        <div class="table-header">
+            <h2>⚡ Promise (Async / Await)</h2>
+
+            <button (click)="loadAsyncAwait()">
+                Carregar Dados
+            </button>
+        </div>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Idade</th>
+                    <th>Ativo</th>
+                    <th>Salário</th>
+                    <th>Departamento</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @for (user of localUserAsyncPromise; track user.id) {
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.idade }}</td>
+                        <td>{{ user.activo ? 'Sim' : 'Não' }}</td>
+                        <td>{{ user.salario | currency:'EUR' }}</td>
+                        <td>{{ user.departamento }}</td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!-- ================= Observable ================= -->
+    <div class="table-card">
+
+        <div class="table-header">
+            <h2>🔄 Observable</h2>
+
+            <button (click)="loadObservable()">
+                Carregar Dados
+            </button>
+        </div>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Idade</th>
+                    <th>Ativo</th>
+                    <th>Salário</th>
+                    <th>Departamento</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @for (user of (localUserObservable$ | async); track user.id) {
+                    <tr>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.idade }}</td>
+                        <td>{{ user.activo ? 'Sim' : 'Não' }}</td>
+                        <td>{{ user.salario | currency:'EUR' }}</td>
+                        <td>{{ user.departamento }}</td>
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

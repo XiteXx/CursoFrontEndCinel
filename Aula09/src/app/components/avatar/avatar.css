@@ -1,53 +1,89 @@
 .avatar-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .avatar {
-  width: 60px;
-  height: 60px;
-  /* criando a bolinha */
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.1);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    border: 2px solid #60a5fa;
+
+    transition: .3s;
+    cursor: pointer;
 }
+
 .avatar:hover {
-  background: rgba(81, 82, 76, 0.1);
+    transform: scale(1.08);
+    box-shadow: 0 0 15px rgba(96, 165, 250, .5);
 }
 
 .name {
-  color: aliceblue;
-  font-size: 0.9rem;
+    color: #f8fafc;
+    font-weight: 600;
+    font-size: .95rem;
+    white-space: nowrap;
 }
 
 button {
-  /* padding: 5px 10px 5px 10px; */
-  padding: 5px 10px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5%;
+    padding: 8px 18px;
+
+    border: 1px solid #60a5fa;
+    border-radius: 8px;
+
+    background: transparent;
+    color: #60a5fa;
+
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+button:hover {
+    background: #60a5fa;
+    color: white;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: scale(.97);
 }
 
 @media (max-width: 768px) {
-  .name {
-    font-size: 0.8rem;
-  }
+
+    .avatar-container {
+        gap: 10px;
+    }
+
+    .avatar {
+        width: 42px;
+        height: 42px;
+    }
+
+    .name {
+        font-size: .85rem;
+    }
+
+    button {
+        padding: 6px 14px;
+        font-size: .85rem;
+    }
+
 }
+
 @media (max-width: 480px) {
-  .avatar-container {
-    flex-direction: column;
-    align-items: center;
-    margin: 5%;
-  }
 
-  .avatar {
-    width: 35px;
-    height: 35px;
-  }
+    .avatar-container {
+        flex-direction: column;
+        gap: 8px;
+    }
 
-  .name {
-    text-align: center;
+    .name {
+        text-align: center;
+    }
 
-    /* font-size: 0.5rem; */
-  }
 }

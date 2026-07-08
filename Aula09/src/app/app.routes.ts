@@ -1,31 +1,25 @@
-import { Fuctions } from './pages/fuctions/fuctions';
 import { Routes } from '@angular/router';
+import { Forms } from './pages/forms/forms';
+import { Welcome } from './pages/welcome/welcome';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'ebook/interpolacao', pathMatch: 'full' },
+  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   {
-    path: 'ebook/interpolacao',
+    path: 'async-tables',
     loadComponent: () =>
-      import('./pages/interpolacao/interpolacao').then((ana) => ana.Interpolacao),
+      import('./pages/async-tables/async-tables').then((a) => a.AsyncTables),
   },
   {
-    path: 'ebook/interface',
-    loadComponent: () =>
-      import('./pages/interfaces/interfaces').then((rafael) => rafael.Interfaces),
+    path: 'welcome',
+    component: Welcome
   },
-  {
-    path: 'ebook/poo',
-    loadComponent: () =>
-      import('./pages/poo/poo').then((c) => c.Poo),
-  },
-  {
-    path: 'ebook/fuctions',
-    loadComponent: () =>
-      import('./pages/fuctions/fuctions').then((c) => c.Fuctions),
+   {
+    path: 'forms',
+    component: Forms
   },
 
   {
     path: '**',
-    loadComponent: () => import('./pages/interpolacao/interpolacao').then((c) => c.Interpolacao),
+    loadComponent: () => import('./pages/welcome/welcome').then((c) => c.Welcome),
   },
 ];

@@ -1,10 +1,11 @@
 import { Service } from '@angular/core';
 import { IUser } from '../shared/i-user';
 import { DataDummy } from './dummy/sand-box';
+import { catchError, delay, from, Observable, throwError } from 'rxjs';
 
 @Service()
 export class FakeBack {
-    localUser: IUser[] = DataDummy;
+    private localUser: IUser[] = DataDummy;
 
     //1º É a promise - Método padrão
     // =====================================================
@@ -47,5 +48,32 @@ export class FakeBack {
     }
 
   }
+
+  //=====================================================
+  // MÉTODO 3 - OBSERVABLE
+  // =====================================================
+  // Observable é muito utilizado no Angular
+  // HttpClient retorna Observable
+  // as vezes temos que converter uma Promise para trabalhar com Observable
+  // =====================================================
+
+  getUtilizadoresObservable():Observable<IUser[]> {
+
+    //SIMULA SUCESSO OU ERRO
+    const sucesso = Math.random() > 1;
+    if (!sucesso) {
+        return throwError(() => new Error("Erro 404"));
+    }
+
+    // Operador FROM() transforma uma promise em observable
+    // OF() este operador transforma list, array ou objeto em observable
+    const localPromise:Promise<IUser[]> = this.getUsersPromise();
+    return from(localPromise).pipe(
+        delay(2000), 
+        catchError((wx) => {
+            console.log("Erro no observable", wx);
+            throw wx;
+        })
+    );}
 
 }
