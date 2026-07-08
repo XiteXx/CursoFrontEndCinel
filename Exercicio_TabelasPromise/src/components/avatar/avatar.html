@@ -1,0 +1,16 @@
+<div class="avatar-container">
+
+  <img
+    [src]="localImage ?? '/img/avatar.png'"
+    alt="Avatar"
+    class="avatar"
+  />
+
+  <span class="name">{{ localNome }}</span>
+
+  <button (click)="logout()">
+    Sign Out
+  </button>
+
+</div>
+

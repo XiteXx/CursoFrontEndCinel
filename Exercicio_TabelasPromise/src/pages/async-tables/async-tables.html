@@ -6,7 +6,6 @@
         Comparação entre Promise, Async/Await e Observable.
     </p>
 
-    <section>
     <!-- ================= Promise ================= -->
     <div class="table-card">
 
@@ -65,9 +64,7 @@
         }
 
     </div>
-    </section>
 
-    <section>
     <!-- ================= Async / Await ================= -->
     <div class="table-card">
 
@@ -78,7 +75,7 @@
                 Carregar Dados
             </button>
         </div>
-        
+
         <table>
 
             <thead>
@@ -110,10 +107,9 @@
         </table>
 
     </div>
-    </section>
 
-    <!-- <section>
-    <div class="table-card">
+    <!-- ================= Observable ================= -->
+    <!-- <div class="table-card">
 
         <div class="table-header">
             <h2>🔄 Observable</h2>
@@ -122,6 +118,7 @@
                 Carregar Dados
             </button>
         </div>
+        
         <table>
 
             <thead>
@@ -137,7 +134,7 @@
 
             <tbody>
 
-                @for (user of (localUserSubscription | async); track user.id) {
+                @for (user of (localUserObservable$ | async); track user.id) {
                     <tr>
                         <td>{{ user.id }}</td>
                         <td>{{ user.email }}</td>
@@ -151,70 +148,7 @@
             </tbody>
 
         </table>
-    
-    </div>
-    </section>-->
 
-    <!-- ================= Promise ================= -->
-    <section>
-    
-    <div class="table-card">
-
-        <div class="table-header">
-            <h2>Observable com Subscribe</h2>
-
-            <button (click)="loadObservable()">
-                Carregar Dados
-            </button>
-        </div>
-
-        @if (errorObservable.errorAsync) {
-
-            <table>
-                <tbody>
-                    <tr>
-                        <td colspan="6">
-                            Sem dados - {{this.errorObservable.errorNome }}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-        } @else {
-
-            <table>
-
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Email</th>
-                        <th>Idade</th>
-                        <th>Ativo</th>
-                        <th>Salário</th>
-                        <th>Departamento</th>
-                    </tr>
-                </thead>
-
-                <tbody>
-
-                    @for (item of localUserSubscription; track $index) {
-                        <tr>
-                            <td>{{ item.id }}</td>
-                            <td>{{ item.email }}</td>
-                            <td>{{ item.idade }}</td>
-                            <td>{{ item.activo ? 'Sim' : 'Não' }}</td>
-                            <td>{{ item.salario | currency:'EUR' }}</td>
-                            <td>{{ item.departamento }}</td>
-                        </tr>
-                    }
-
-                </tbody>
-
-            </table>
-
-        }
-
-    </div>
-    </section>
+    </div> -->
 
 </div>

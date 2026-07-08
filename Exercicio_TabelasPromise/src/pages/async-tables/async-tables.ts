@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { IUser } from '../../shared/i-user';
-import { catchError, Observable, of, switchMap, take } from 'rxjs';
+import { Observable } from 'rxjs';
 import { FakeBack } from '../../service/fake-back';
 
 type LocalError = {errorAsync: boolean, errorNome: string};
@@ -21,8 +21,7 @@ export class AsyncTables {
   localUserAsyncPromise: IUser[] = [];
 
   //User com observable
-  // localUserObservable$: Observable<IUser[]>;
-  localUserSubscription: IUser[] = [];
+  localUserObservable$: IUser[] = [];
 
   //Criação das variaveis de erro
   errorPromise: LocalError = {errorAsync:false, errorNome:""};
@@ -61,39 +60,13 @@ export class AsyncTables {
       console.error("Erro asyncawait", console.error);
       this.localUserAsyncPromise = [];
       this.errorAsyncAwaitPromise = {errorAsync: true, errorNome: "Erro no load async await promise:  " + error};
+
+
     });
   }
 
   loadObservable() {
-  //Info sobre RxJS
-  //Operador take(x), faz com que após x subscrições o canal de dados é fechado
-  this.fakeBack.getUtilizadoresObservable().pipe(take(1), switchMap((res: IUser[]) => {
-    console.log("Resultado de carregar observable:  ", res);
-    return this.localUserSubscription = res;
-  }), 
-  
-  catchError((error) => {
-    console.error("Erro load observabhle", error);
-    this.errorObservable = {errorAsync: true, errorNome: "Erro no obsercvable:  " + error};
-    return of([]);
-
-  })
-  ).subscribe();
-  }
-
-  loadObservableComSubscribeObjeto() {
-  //Info sobre RxJS
-  //Operador take(x), faz com que após x subscrições o canal de dados é fechado
-  this.fakeBack.getUtilizadoresObservable().pipe(take(1), switchMap((res: IUser[]) => {
-    console.log("Resultado de loadObservableComSubscribeObjeto:  ", res);
-    return res;
-  }), 
-  
-  ).subscribe({
-    next: (res) => {console.log("Nossos Dados:  " + res)},
-    error: (e) => console.log("Erro de loadObservableComSubscribeObjeto:  " + e),
-    complete: () => console.log("O Noso complete, terminou o observable"),
-  });
+  // this.localUserObservable$ = this.fakeBack.getUtilizadoresObservable();
   }
 
 
