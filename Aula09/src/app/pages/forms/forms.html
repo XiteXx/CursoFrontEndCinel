@@ -1,1 +1,121 @@
-<p>forms works!</p>
+<div class="login-card">
+    <h2>SignIn</h2>
+    <p>Sigin Forms</p>
+
+    <button class="clean-button" (click)="this.signInForms.reset()">Reset Formulario</button>
+
+    <form [formGroup]="this.signInForms" (ngSubmit)="onSubmit()">
+        
+        <label for="email">E-mail</label>
+        <input id="email" type="email" placeholder="Introduza o seu email" formControlName="email" />
+
+        <label for="password">Palavra-passe</label>
+        <input id="password" type="password" placeholder="Introduza a sua palavra-passe" formControlName="password" />
+
+        <div class="button-group">
+            <button type="button" class="go-back" (click)="goBack()">Retroceder</button>
+            <!-- o Type submit faz com que a tag form execute o formulario,e faz com que o ngsubmit receba o nosso form -->
+            <button class="sign-in" type="submit">Login</button>
+        </div>
+        
+    </form>
+</div>
+
+
+
+<!-- <div class="login-card">
+  <h2>Iniciar Sessão</h2>
+  <p>Introduz as tuas credenciais para continuar.</p>
+
+  <form [formGroup]="signInForms">
+
+    
+    <label for="email">Email</label>
+    <input
+      id="email"
+      type="email"
+      placeholder="Introduza o seu email"
+      formControlName="email"
+    />
+
+    <div
+      class="error-message"
+      *ngIf="signInForms.get('email')?.invalid && signInForms.get('email')?.touched"
+    >
+      <span *ngIf="signInForms.get('email')?.errors?.['required']">
+        O email é obrigatório.
+      </span>
+
+      <span *ngIf="signInForms.get('email')?.errors?.['email']">
+        Introduza um email válido.
+      </span>
+    </div>
+
+    
+    <label for="password">Palavra-passe</label>
+    <input
+      id="password"
+      type="password"
+      placeholder="Introduza a sua palavra-passe"
+      formControlName="password"
+    />
+
+    <div
+      class="error-message"
+      *ngIf="signInForms.get('password')?.invalid && signInForms.get('password')?.touched"
+    >
+      <span *ngIf="signInForms.get('password')?.errors?.['required']">
+        A palavra-passe é obrigatória.
+      </span>
+
+      <span *ngIf="signInForms.get('password')?.errors?.['minlength']">
+        A palavra-passe deve ter pelo menos 6 caracteres.
+      </span>
+
+      <span *ngIf="signInForms.get('password')?.errors?.['maxlength']">
+        A palavra-passe não pode ter mais de 10 caracteres.
+      </span>
+    </div>
+
+    <button
+      type="button"
+      class="clean-button"
+      (click)="signInForms.reset()"
+    >
+      Limpar
+    </button>
+
+    <div class="button-group">
+      <button
+        type="submit"
+        class="sign-in"
+        [disabled]="signInForms.invalid"
+      >
+        Iniciar Sessão
+      </button>
+
+      <button
+        type="button"
+        class="go-back"
+        routerLink="/"
+      >
+        Voltar
+      </button>
+    </div>
+
+    <button
+      type="button"
+      class="google-btn"
+    >
+      <img src="assets/google-icon.svg" alt="Google" />
+      Entrar com Google
+    </button>
+
+    <div class="warning">
+      <p>
+        A sua palavra-passe deve conter entre 6 e 10 caracteres.
+      </p>
+    </div>
+
+  </form>
+</div> -->
