@@ -9,13 +9,65 @@
         <label for="email">E-mail</label>
         <input id="email" type="email" placeholder="Introduza o seu email" formControlName="email" />
 
+        <!-- Validações -->
+        @if (this.signInForms.invalid && this.signInForms.get("email")?.touched) {
+          <div [ngClass]="{
+              'error-message':
+                signInForms.controls['email'].invalid &&
+                signInForms.controls['email'].touched
+            }">
+        
+          
+            @if (this.signInForms.hasError('required', 'email')) {
+              <small class="warning">
+              <p>{{"Email é obrigatorio"}}</p>
+              </small>
+            }
+
+            @if (this.signInForms.get('email')?.getError('email')){
+              <small class="warning">
+              <p>{{"Email invalido"}}</p>
+              </small>
+            }
+            
+          </div>
+
+        }
+
+
         <label for="password">Palavra-passe</label>
         <input id="password" type="password" placeholder="Introduza a sua palavra-passe" formControlName="password" />
+
+        @if (this.signInForms.get('password')?.invalid &&
+     this.signInForms.get('password')?.touched) {
+
+          <div [ngClass]="{'error-message': signInForms.controls['password'].invalid && signInForms.controls['password']?.touched}" >
+
+            @if (this.signInForms.get('password')?.hasError('required')) {
+              <small class="warning">
+              <p>{{"Password é obrigatorio"}}</p>
+              </small>
+            }
+
+            @if (this.signInForms.get('password')?.getError('minlength')){
+              <small class="warning">
+              <p>{{"A password tem que ter mais que 6 caracteres."}}</p>
+              </small>
+            }
+
+            @if (this.signInForms.get('password')?.getError('maxlength')){
+              <small class="warning">
+              <p>{{"A password tem que ter menos de que 10 caracteres."}}</p>
+              </small>
+            }
+
+          </div>
+        }
 
         <div class="button-group">
             <button type="button" class="go-back" (click)="goBack()">Retroceder</button>
             <!-- o Type submit faz com que a tag form execute o formulario,e faz com que o ngsubmit receba o nosso form -->
-            <button class="sign-in" type="submit">Login</button>
+            <button class="sign-in" type="submit" [disabled]="this.signInForms.invalid">Login</button>
         </div>
         
     </form>

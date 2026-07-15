@@ -1,8 +1,8 @@
-import { EnvironmentInjector, inject, Service } from '@angular/core';
+import { EnvironmentInjector, inject, runInInjectionContext, Service } from '@angular/core';
 import { FirebaseService } from './firebase';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
-import { User } from 'firebase/auth';
+import { BehaviorSubject, catchError, from, Observable, tap, throwError } from 'rxjs';
+import { AuthError, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, User } from 'firebase/auth';
 
 @Service()
 export class AuthStateService {
@@ -13,6 +13,31 @@ export class AuthStateService {
 //Isto é um observable do tipo Hot
     private user$ = new BehaviorSubject <User | null>(null);
 
+    initAuthListener():void {
+        runInInjectionContext(this.environmentInjector, () => {
+            onAuthStateChanged(this.auth, (user:User | null) => {
+                this.user$.next(null);
+            });
+        });
+    }
+
+    getUser() : Observable<User | null> {
+        return this.user$.asObservable();
+    }
+
+    isAuthenticated = (): boolean => {
+        return this.user$.value !== null;
+    }
+ 
+    loginWithGoogle = () => {
+        const provider = new GoogleAuthProvider();
+        return from(signInWithPopup(this.auth, provider)).pipe(tap(() => {
+            this.routes.navigate(["/about"]);
+        }), catchError((e: AuthError) => {
+            return throwError(() => new Error(e.message || 'Erro desconhecido'));
+        })
+    );
+    }
 
 
 }

@@ -17,6 +17,7 @@ export class Forms {
   //Variavel para receber criar formulario e capturar dados
 
   protected signInForms: UntypedFormGroup;
+path: any;
 
   constructor(protected authService: AuthStateService, protected router: Router, private fb: UntypedFormBuilder) {
 
@@ -25,6 +26,8 @@ export class Forms {
       password: ["", [Validators.required, Validators.minLength(6), Validators.maxLength(10)]],
 
     });
+    //Controls e api do forms que controla os Validators e os dados
+    console.log("Os nossos controls:  ", this.signInForms.controls);
   }
 
   onSubmit() {
