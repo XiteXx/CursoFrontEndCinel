@@ -1,0 +1,61 @@
+{
+  "hash": "6db2540b",
+  "configHash": "868137c6",
+  "lockfileHash": "9ec0840d",
+  "browserHash": "0a67cc93",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "fc892fb5",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "cc5a8fd4",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "e5b61a62",
+      "needsInterop": false
+    },
+    "@angular/router": {
+      "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
+      "file": "@angular_router.js",
+      "fileHash": "c29b44b0",
+      "needsInterop": false
+    },
+    "luxon": {
+      "src": "../../../../../../node_modules/luxon/build/es6/luxon.mjs",
+      "file": "luxon.js",
+      "fileHash": "b226534d",
+      "needsInterop": false
+    },
+    "rxjs": {
+      "src": "../../../../../../node_modules/rxjs/dist/esm5/index.js",
+      "file": "rxjs.js",
+      "fileHash": "6fcbb968",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-WAM5F4BM": {
+      "file": "chunk-WAM5F4BM.js"
+    },
+    "chunk-JDIKDYUN": {
+      "file": "chunk-JDIKDYUN.js"
+    },
+    "chunk-XKHY4GQW": {
+      "file": "chunk-XKHY4GQW.js"
+    },
+    "chunk-RSS3ODKE": {
+      "file": "chunk-RSS3ODKE.js"
+    },
+    "chunk-GOMI4DH3": {
+      "file": "chunk-GOMI4DH3.js"
+    }
+  }
+}
