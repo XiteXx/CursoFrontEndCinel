@@ -69,9 +69,14 @@
             <!-- o Type submit faz com que a tag form execute o formulario,e faz com que o ngsubmit receba o nosso form -->
             <button class="sign-in" type="submit" [disabled]="this.signInForms.invalid">Login</button>
         </div>
+
+        <button class="google-btn" type="button" (click)="gmailAuthentication()">
+          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="google">
+          SignIn With Google
+        </button>
         
-    </form>
-</div>
+        </form>
+        </div>
 
 
 

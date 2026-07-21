@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { Forms } from './pages/forms/forms';
 import { Welcome } from './pages/welcome/welcome';
+import { About } from './pages/about/about';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
@@ -16,6 +17,11 @@ export const routes: Routes = [
    {
     path: 'forms',
     component: Forms
+  },
+
+  {
+    path: 'about',
+    component: About
   },
 
   {

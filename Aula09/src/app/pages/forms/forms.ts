@@ -14,6 +14,7 @@ import { email } from '@angular/forms/signals';
 })
 export class Forms {
 
+
   //Variavel para receber criar formulario e capturar dados
 
   protected signInForms: UntypedFormGroup;
@@ -48,5 +49,18 @@ goBack = () => {
   this.signInForms.reset();
   this.router.navigateByUrl("/")
 }
+
+
+gmailAuthentication() {
+this.authService.loginWithGoogle().subscribe(
+{
+  next: (res) => console.log("Resultado Firebase Authentication", res),
+  error: (e) => {
+    console.error("Erro no firebase authentication", e), this.goBack();
+  },
+}
+);
+}
+
 
 }

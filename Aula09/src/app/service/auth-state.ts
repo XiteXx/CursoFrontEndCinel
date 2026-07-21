@@ -1,8 +1,8 @@
 import { EnvironmentInjector, inject, runInInjectionContext, Service } from '@angular/core';
 import { FirebaseService } from './firebase';
 import { Router } from '@angular/router';
-import { BehaviorSubject, catchError, from, Observable, tap, throwError } from 'rxjs';
-import { AuthError, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, User } from 'firebase/auth';
+import { BehaviorSubject, catchError, from, Observable, take, tap, throwError } from 'rxjs';
+import { AuthError, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, User, UserCredential } from 'firebase/auth';
 
 @Service()
 export class AuthStateService {
@@ -15,8 +15,8 @@ export class AuthStateService {
 
     initAuthListener():void {
         runInInjectionContext(this.environmentInjector, () => {
-            onAuthStateChanged(this.auth, (user:User | null) => {
-                this.user$.next(null);
+            onAuthStateChanged(this.auth, (user: User | null) => {
+                this.user$.next(user);
             });
         });
     }
@@ -31,7 +31,10 @@ export class AuthStateService {
  
     loginWithGoogle = () => {
         const provider = new GoogleAuthProvider();
-        return from(signInWithPopup(this.auth, provider)).pipe(tap(() => {
+        return from(signInWithPopup(this.auth, provider)).pipe(
+            take(1),
+            tap((user: UserCredential) => {
+            console.log("Result no server.ts:  ",user);
             this.routes.navigate(["/about"]);
         }), catchError((e: AuthError) => {
             return throwError(() => new Error(e.message || 'Erro desconhecido'));
